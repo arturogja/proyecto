@@ -128,6 +128,9 @@
                     type: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify(formData),
+                    headers: {
+                        'Authorization': 'Basic ' + btoa('test:test123')
+                    },
                     success: function(response) {
                         showModal('Usuario registrado correctamente.', 'Éxito');
                         $('#registerForm')[0].reset();

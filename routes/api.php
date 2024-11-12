@@ -4,6 +4,21 @@ require_once __DIR__ . '/../src/controllers/UserApiController.php';
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json; charset=UTF-8');
 
+if (!isset($_SERVER['PHP_AUTH_USER'])) {
+    header("WWW-Authenticate: Basic realm=\"Private Area\"");
+    header('HTTP/1.0 401 Unauthorized');
+    echo 'No autorizado';
+    exit;
+} else {
+    if (($_SERVER['PHP_AUTH_USER'] == 'test' && ($_SERVER['PHP_AUTH_PW'] == 'test123'))) {
+    } else {
+        header("WWW-Authenticate: Basic realm=\"Private Area\"");
+        header('HTTP/1.0 401 Unauthorized');
+        print 'No autorizado';
+        exit;
+    }
+}
+
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 $action = $_GET['action'] ?? null;
 

@@ -126,10 +126,11 @@
         // Cargar los usuarios
         const loadUsers = async () => {
             try {
-                const response = await fetch('../routes/api.php?action=getAllUsers');
-                if (!response.ok) {
-                    throw new Error('Error al obtener los usuarios');
-                }
+                const response = await fetch('../routes/api.php?action=getAllUsers', {
+                    headers: {
+                        'Authorization': 'Basic ' + btoa('test:test123'),
+                    },
+                });
                 const users = await response.json();
 
                 const tableBody = document.querySelector('tbody');
@@ -222,10 +223,13 @@
                     type: 'PUT',
                     contentType: 'application/json',
                     data: JSON.stringify(formData),
+                    beforeSend: function(xhr) {
+                        xhr.setRequestHeader('Authorization', 'Basic ' + btoa('test:test123'));
+                    },
                     success: function(response) {
                         showMessage('Usuario actualizado correctamente', 'success');
                         $('#editUserModal').modal('hide');
-                        loadUsers(); 
+                        loadUsers();
                     },
                     error: function(xhr) {
                         showMessage('Error al actualizar el usuario: ' + xhr.responseText, 'error');
@@ -235,8 +239,8 @@
 
             // Eliminar usuario
             $(document).on('click', '.delete-btn', function() {
-                const userId = $(this).data('id'); 
-                $('#delete-id').val(userId); 
+                const userId = $(this).data('id');
+                $('#delete-id').val(userId);
             });
 
             $('#deleteUserForm').submit(function(e) {
@@ -251,6 +255,9 @@
                     data: JSON.stringify({
                         id: userId
                     }),
+                    beforeSend: function(xhr) {
+                        xhr.setRequestHeader('Authorization', 'Basic ' + btoa('test:test123'));
+                    },
                     success: function(response) {
                         showMessage('Usuario eliminado correctamente', 'success');
                         $('#deleteUserModal').modal('hide');
@@ -267,7 +274,7 @@
         function showMessage(message, type) {
             const messageText = $('#messageText');
             messageText.text(message);
-            $('#messageModal').modal('show'); 
+            $('#messageModal').modal('show');
         }
     </script>
 </body>
