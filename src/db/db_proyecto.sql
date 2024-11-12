@@ -28,13 +28,12 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Data for the table `users` */
 
-insert  into `users`(`id`,`name`,`last_name`,`second_last_name`,`phone`,`email`,`password`,`created_at`,`deleted_at`) values (1,'Pedro','Perez','Hernandez','5570852421','pedro.perez@test.com','$2b$12$YxiAM.gynMxpfKb8ZPSjZeFVEDbH9gcjDvTJucbni2jHvg2NWmb4G','2024-11-11 23:08:03',NULL),(2,'Arturo','Guillen','Jimenez','2281001122','arturo.guillen@test.com','$2b$12$YxiAM.gynMxpfKb8ZPSjZeFVEDbH9gcjDvTJucbni2jHvg2NWmb4G','2024-11-11 23:08:34',NULL);
+insert  into `users`(`id`,`name`,`last_name`,`second_last_name`,`phone`,`email`,`password`,`created_at`,`deleted_at`) values (1,'Pedro','Perez','Hernandez','5577114455','pedro.perez@test.com','$2b$12$YxiAM.gynMxpfKb8ZPSjZeFVEDbH9gcjDvTJucbni2jHvg2NWmb4G','2024-11-11 23:26:32',NULL),(2,'Arturo','Guillen','Jimenez','2281112244','arturo.guillen@test.com','$2b$12$YxiAM.gynMxpfKb8ZPSjZeFVEDbH9gcjDvTJucbni2jHvg2NWmb4G','2024-11-11 23:26:59',NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
