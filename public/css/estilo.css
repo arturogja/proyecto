@@ -1,0 +1,71 @@
+/* Para dispositivos móviles */
+@media (max-width: 768px) {
+
+    /* Sidebar: ocultar el sidebar para móviles y usar el menú hamburguesa */
+    #wrapper.toggled .sidebar {
+        width: 0;
+        padding: 0;
+    }
+
+    .sidebar-brand-text {
+        display: none;
+    }
+
+    /* Botón del menú hamburguesa */
+    #sidebarToggleTop {
+        display: block;
+    }
+
+    /* Ajustar los tamaños de las fuentes */
+    .navbar-nav .nav-item .nav-link {
+        font-size: 14px;
+    }
+
+    /* Botón de "Cerrar Sesión" */
+    .sidebar .nav-item:last-child {
+        padding-bottom: 10px;
+    }
+}
+
+/* Para dispositivos de tamaño mediano (tabletas) */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    #wrapper.toggled .sidebar {
+        width: 250px;
+    }
+
+    /* Mostrar el texto de la marca y el menú hamburguesa */
+    .sidebar-brand-text {
+        display: block;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+        font-size: 16px;
+    }
+}
+
+/* Para pantallas más grandes (escritorios y pantallas grandes) */
+@media (min-width: 1024px) {
+
+    /* Asegurarse de que el sidebar se muestre completo */
+    #wrapper.toggled .sidebar {
+        width: 250px;
+    }
+
+    /* Asegurarse de que el menú de navegación tenga un tamaño adecuado */
+    .navbar-nav .nav-item .nav-link {
+        font-size: 18px;
+    }
+
+    /* Espaciado entre el contenido y los bordes de la pantalla */
+    .container-fluid {
+        margin-left: 20px;
+    }
+}
+
+/* Ocultar elementos en pantallas pequeñas */
+@media (max-width: 768px) {
+    .some-element {
+        display: none;
+    }
+}
